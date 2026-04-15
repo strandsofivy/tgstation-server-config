@@ -18,3 +18,4 @@ mrmelbert = GameMaster+HeadCoder
 ## Headmins
 isratosh = HeadAdmin
 xzero314 = HeadAdmin
+Dunham = HeadAdmin
