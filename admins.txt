@@ -17,4 +17,4 @@ mrmelbert = GameMaster+HeadCoder
 
 ## Headmins
 isratosh = HeadAdmin
-maxipat = HeadAdmin
+xzero314 = HeadAdmin
