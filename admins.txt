@@ -16,6 +16,6 @@ lemoninthedark = HeadCoder
 mrmelbert = GameMaster+HeadCoder
 
 ## Headmins
-isratosh = HeadAdmin
+dendydoom = HeadAdmin
 xzero314 = HeadAdmin
-Dunham = HeadAdmin
+dunham = HeadAdmin
