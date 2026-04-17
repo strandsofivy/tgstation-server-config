@@ -21,8 +21,8 @@ jobs:
         uses: actions/github-script@v9
         with:
           script: |
-            const makeReviewThreads = await import('${{ github.workspace }}/.github/workflows/autoReviewThreads.js')
-            await makeReviewThreads({ glob })
+            const makeReviewThreads = require('${{ github.workspace }}/.github/workflows/autoReviewThreads.js');
+            await makeReviewThreads({ glob });
       - uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9
         with:
           commit_message: update trialmin threads list in motd.txt
