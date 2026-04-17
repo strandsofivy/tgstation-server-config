@@ -1,8 +1,7 @@
 const parser = require('node-html-parser');
 const fs = require('fs');
-const glob = require('@actions/glob');
 
-module.exports = async () => {
+module.exports = async ({ glob }) => {
     const globber = await glob.create("**/motd.txt");
 
     const title_matcher = /Trialmin Review.*: (.+)$/i;
