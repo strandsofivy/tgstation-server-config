@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -23,7 +24,17 @@ jobs:
           script: |
             const makeReviewThreads = require('${{ github.workspace }}/.github/workflows/autoReviewThreads.js');
             await makeReviewThreads({ glob });
-      - uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
-          commit_message: update trialmin threads list in motd.txt
-          file_pattern: '**/motd.txt'
+          title: Update Trialmin Review Threads
+          branch: update-trialmin-threads
+          body: Updates Trialmins Review Threads in all `motd.txt`
+          commit-message: update trialmin threads list in motd.txt
+          add-paths: '**/motd.txt'
+      - name: Approve and merge pull request
+        run: |
+          gh pr merge --admin -md ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          GH_TOKEN: ${{ github.token }}
