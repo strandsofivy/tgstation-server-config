@@ -6,6 +6,7 @@ module.exports = async ({ glob }) => {
 
     const title_matcher = /Trialmin Review.*: (.+)$/i;
     const anchor_matcher = /(?:<!-- REVIEW THREADS ANCHOR START -->[^]*<!-- REVIEW THREADS ANCHOR END -->)/;
+    const skip_matcher = /<!-- REVIEW THREADS SKIP -->/;
     const topic_id_matcher = /t=(\d+)/;
 
     const raw = await fetch("https://tgstation13.org/phpBB/viewforum.php?f=120", {
@@ -54,6 +55,12 @@ ${new_text}
         let count = 0;
 
         const file_contents = fs.readFileSync(file).toString();
+
+        if (file_contents.search(skip_matcher) !== -1) {
+            console.log("skip flag found, skipping update");
+            continue;
+        }
+
         const new_content = file_contents.replace(anchor_matcher, (_) => { count += 1; return replacement });
 
         if (count == 0) {
