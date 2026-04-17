@@ -1,0 +1,28 @@
+# Updates each motd.txt to include active review threads from the forums automagically
+name: Auto Trialmin Review Threads
+on:
+  schedule:
+    - cron: 0 0,6,12,18 * * *
+  workflow_dispatch:
+
+jobs:
+  auto_review_threads:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm install node-html-parser
+      - name: Include trialmin review threads
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const makeReviewThreads = await import('${{ github.workspace }}/.github/workflows/autoReviewThreads.js')
+            await makeReviewThreads({ github, context })
+      - uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9
+        with:
+          commit_message: update trialmin threads list in motd.txt
