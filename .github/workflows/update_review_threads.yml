@@ -30,9 +30,10 @@ jobs:
         with:
           title: Update Trialmin Review Threads
           branch: update-trialmin-threads
+          body: Updates Trialmins Review Threads in all `motd.txt`
           commit-message: update trialmin threads list in motd.txt
           add-paths: '**/motd.txt'
       - name: Approve and merge pull request
         run: |
-          gh pr review -a {{ steps.cpr.outputs.pull-request-number }}
-          gh pr merge --auto -d {{ steps.cpr.outputs.pull-request-number }}
+          gh pr review -a ${{ steps.cpr.outputs.pull-request-number }}
+          gh pr merge --auto -d ${{ steps.cpr.outputs.pull-request-number }}
