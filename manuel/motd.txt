@@ -14,6 +14,17 @@
 
 <p>You can join us on our Discord server <a href="https://discord.gg/tg13"><b><u>by clicking here.</b></u></a></p>
 
+<!--
+
+>>Important Info For Headmins<<
+
+The anchor comments below ensures that the auto trialmin review thread action knows where to paste active review threads into the motd.txt.
+Note that anything you write between both comments will get deleted when the action runs again. 
+Feel free move it to wherever you want in this file, but please ensure that it exists or add a skip comment in its place.
+If you understand code, you can read through ./.github/workflows/autoReviewThread.js to see how the system works.
+
+-->
+
 <!-- REVIEW THREADS ANCHOR START -->
 <!-- REVIEW THREADS ANCHOR END -->
 

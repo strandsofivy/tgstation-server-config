@@ -4,4 +4,12 @@
 
 <h1>Welcome to /tg/station's SS13!</h1>
 
+<!--
+
+>>Important Info For Headmins<<
+The comment below tells the auto trialmin review thread action that it should not insert any review threads into this motd. This mainly skips an error message.
+Do not remove or change it please unless you're sure of what you're doing <3
+
+-->
+
 <!-- REVIEW THREADS SKIP -->
