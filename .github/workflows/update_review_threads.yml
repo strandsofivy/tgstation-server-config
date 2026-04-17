@@ -37,3 +37,5 @@ jobs:
         run: |
           gh pr review -a ${{ steps.cpr.outputs.pull-request-number }}
           gh pr merge --auto -d ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          GH_TOKEN: ${{ github.token }}
