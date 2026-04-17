@@ -33,6 +33,6 @@ jobs:
           commit-message: update trialmin threads list in motd.txt
           add-paths: '**/motd.txt'
       - name: Approve and merge pull request
-        runs: |
+        run: |
           gh review -a {{ steps.cpr.outputs.pull-request-number }}
           gh merge --auto -d {{ steps.cpr.outputs.pull-request-number }}
