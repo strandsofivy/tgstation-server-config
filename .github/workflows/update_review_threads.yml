@@ -34,5 +34,5 @@ jobs:
           add-paths: '**/motd.txt'
       - name: Approve and merge pull request
         run: |
-          gh review -a {{ steps.cpr.outputs.pull-request-number }}
-          gh merge --auto -d {{ steps.cpr.outputs.pull-request-number }}
+          gh pr review -a {{ steps.cpr.outputs.pull-request-number }}
+          gh pr merge --auto -d {{ steps.cpr.outputs.pull-request-number }}
