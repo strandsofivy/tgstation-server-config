@@ -48,7 +48,7 @@ module.exports = async ({ glob }) => {
 ${new_text}
 <!-- REVIEW THREADS ANCHOR END -->`
 
-    for (const file of globber.glob()) {
+    for (const file of await globber.glob()) {
         console.log(`current file: ${file}`);
 
         let count = 0;
