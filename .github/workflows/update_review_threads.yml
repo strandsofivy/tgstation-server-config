@@ -31,7 +31,9 @@ jobs:
           private-key: ${{ secrets.CI_BOT_PRIVATE_KEY }}
       - name: Merge changes
         run: |
-          gh auth setup-git
+          # configure user
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add '**/motd.txt'
           git commit -m "update trialmin threads list in motd.txt"
           git push
