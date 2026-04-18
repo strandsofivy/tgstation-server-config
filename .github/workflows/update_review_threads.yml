@@ -39,7 +39,7 @@ jobs:
           client-id: ${{ secrets.CI_BOT_CLIENT_ID }}
           private-key: ${{ secrets.CI_BOT_PRIVATE_KEY }}
       - name: Merge pull request
-        if: ${{ steps.cpr.outputs.pull-request-operation }} == "created" || ${{ steps.cpr.outputs.pull-request-operation }} == "updated"
+        if: ${{ steps.cpr.outputs.pull-request-operation  == "created" || steps.cpr.outputs.pull-request-operation == "updated" }}
         run: |
           gh pr merge --admin -md "${{ steps.cpr.outputs.pull-request-number }}"
         env:
