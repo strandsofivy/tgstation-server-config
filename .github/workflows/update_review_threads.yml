@@ -31,6 +31,7 @@ jobs:
           private-key: ${{ secrets.CI_BOT_PRIVATE_KEY }}
       - name: Merge changes
         run: |
+          gh auth setup-git
           git add '**/motd.txt'
           git commit -m "update trialmin threads list in motd.txt"
           git push
