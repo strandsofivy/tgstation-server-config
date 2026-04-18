@@ -40,6 +40,6 @@ jobs:
           private-key: ${{ secrets.CI_BOT_PRIVATE_KEY }}
       - name: Merge pull request
         run: |
-          gh pr merge --admin -md ${{ steps.cpr.outputs.pull_request_number }}
+          gh pr merge --admin -md "${{ steps.cpr.outputs.pull-request-number }}"
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
